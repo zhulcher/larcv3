@@ -150,24 +150,53 @@ void init_logger(pybind11::module m);
 // Compiler macro for saving us from text typing
 //
 /// Compiler macro for DEBUG message
+#ifndef LARCV_DEBUG
 #define LARCV_DEBUG()    if( logger().debug   () ) logger().send(::larcv3::msg::kDEBUG,    __FUNCTION__, __LINE__, __FILE__)
+#endif
 /// Compiler macro for INFO message
+#ifndef LARCV_INFO
 #define LARCV_INFO()     if( logger().info    () ) logger().send(::larcv3::msg::kINFO,     __FUNCTION__, __LINE__          )
+#endif
 /// Compiler macro for NORMAL message
+#ifndef LARCV_NORMAL
 #define LARCV_NORMAL()   if( logger().normal  () ) logger().send(::larcv3::msg::kNORMAL,   __FUNCTION__                    )
+#endif
 /// Compiler macro for WARNING message
+#ifndef LARCV_WARNING
 #define LARCV_WARNING()  if( logger().warning () ) logger().send(::larcv3::msg::kWARNING,  __FUNCTION__                    )
+#endif
 /// Compiler macro for ERROR message
+#ifndef LARCV_ERROR
 #define LARCV_ERROR()    if( logger().error   () ) logger().send(::larcv3::msg::kERROR,    __FUNCTION__, __LINE__          )
+#endif
 /// Compiler macro for CRITICAL message
+#ifndef LARCV_CRITICAL
 #define LARCV_CRITICAL()                           logger().send(::larcv3::msg::kCRITICAL, __FUNCTION__, __LINE__, __FILE__)
+#endif
 
+#ifndef LARCV_SDEBUG
 #define LARCV_SDEBUG()    if(larcv3::logger::get_shared().debug())    larcv3::logger::get_shared().send(::larcv3::msg::kDEBUG,    __FUNCTION__,__LINE__,__FILE__)
+#endif
+
+#ifndef LARCV_SINFO
 #define LARCV_SINFO()     if(larcv3::logger::get_shared().info())     larcv3::logger::get_shared().send(::larcv3::msg::kINFO,     __FUNCTION__,__LINE__         )
+#endif
+
+#ifndef LARCV_SNORMAL
 #define LARCV_SNORMAL()   if(larcv3::logger::get_shared().normal())   larcv3::logger::get_shared().send(::larcv3::msg::kNORMAL,   __FUNCTION__                  )
+#endif
+
+#ifndef LARCV_SWARNING
 #define LARCV_SWARNING()  if(larcv3::logger::get_shared().warning())  larcv3::logger::get_shared().send(::larcv3::msg::kWARNING,  __FUNCTION__                  )
+#endif
+
+#ifndef LARCV_SERROR
 #define LARCV_SERROR()    if(larcv3::logger::get_shared().error())    larcv3::logger::get_shared().send(::larcv3::msg::kERROR,    __FUNCTION__,__LINE__         )
+#endif
+
+#ifndef LARCV_SCRITICAL
 #define LARCV_SCRITICAL() larcv3::logger::get_shared().send(::larcv3::msg::kCRITICAL, __FUNCTION__,__LINE__,__FILE__)
+#endif
 
 /** @} */ // end of doxygen group logger
 #endif

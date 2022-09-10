@@ -75,7 +75,16 @@ setup(
     },
     url='https://github.com/DeepLearnPhysics/larcv3',
     scripts=['bin/merge_larcv3_files.py', 'bin/run_processor.py'],
-    packages=['larcv','src/pybind11'],
+    packages=['larcv','src/pybind11',
+    'larcv.lib',
+    'larcv.include.larcv3.core.processor',
+    'larcv.include.larcv3.core.dataformat',
+    'larcv.include.larcv3.core.base',
+    'larcv.include.larcv3.app.sbnd_imagemod',
+    'larcv.include.larcv3.app.imagemod',
+    'larcv.include.larcv3.app.filter',
+    'larcv.include.app.queueio'
+    ],
     install_requires=[
         'numpy',
         'scikit-build',

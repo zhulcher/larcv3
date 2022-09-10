@@ -56,6 +56,7 @@ if(CMAKE_PYTHON_BINDINGS)
 
     # If building with setuptools, CMake will not be performing the install
     set_target_properties(pylarcv PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
+    set_target_properties(pylarcv PROPERTIES BUILD_WITH_INSTALL_NAME_DIR TRUE)
 
     target_link_libraries(pylarcv PRIVATE larcv3)
 
